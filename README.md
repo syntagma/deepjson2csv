@@ -59,7 +59,7 @@ var json = [
   }
 ];
 
-deepjson2csv({data: json, fields: ['car', 'price', 'color']}, function(err, csv) {
+deepjson2csv({data: json}, function(err, csv) {
   if (err) console.log(err);
   fs.writeFile('file.csv', csv, function(err) {
     if (err) throw err;
@@ -160,8 +160,8 @@ Options:
   -d, --delimiter [delim] Specify a delimiter other than the default comma to use.
   -p, --pretty            Use only when printing to console. Logs output in pretty tables.
 ```
-      
-An input file `-i` and fields `-f` are required. If no output `-o` is specified the result is logged to the console.
+
+An input file `-i` is required. If no fields (`-f`) are specified, the default is to use all the keys of the first object. If no output `-o` is specified the result is logged to the console.
 Use `-p` to show the result in a beautiful table inside the console.
       
 ### CLI examples
